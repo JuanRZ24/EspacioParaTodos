@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Crear Solicitud - Solicitud Espacios</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="create">
+  <div class="container">
+    <div class="card-shell">
+      <div class="hero">
+        <div class="logo">SE</div>
+        <div>
+          <h1>Crear Solicitud</h1>
+          <p class="muted">Selecciona la zona y la fecha de tu actividad</p>
+        </div>
+      </div>
+
+      <label for="zone_select">Zona a utilizar</label>
+      <select id="zone_select">
+        <option value="">Cargando zonas...</option>
+      </select>
+
+      <div id="availability_info"
+        style="margin:10px 0;padding:10px;background:#f8f9fa;border-left:4px solid var(--primary-500);font-size:0.9em;display:none">
+      </div>
+
+      <label for="event_date">Fecha del evento</label>
+      <input id="event_date" type="date">
+
+      <div style="display:flex;gap:8px">
+        <div style="flex:1">
+          <label for="start_time">Hora de inicio</label>
+          <input id="start_time" type="time">
+        </div>
+        <div style="flex:1">
+          <label for="end_time">Hora de fin</label>
+          <input id="end_time" type="time">
+        </div>
+      </div>
+
+      <label for="justification">Justificación</label>
+      <input id="justification" placeholder="Explica por qué necesitas este espacio">
+
+      <label for="description">Descripción del evento</label>
+      <input id="description" placeholder="Describe qué se hará en el espacio">
+
+      <button id="btn_create_request">Enviar solicitud</button>
+      <p><a href="my_requests.html">Ver mis solicitudes</a></p>
+    </div>
+  </div>
+  <script src="js/header.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

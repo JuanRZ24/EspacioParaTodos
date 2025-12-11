@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Panel - Solicitud Espacios</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="dashboard">
+  <div class="container">
+    <div class="card-shell">
+      <div class="hero">
+        <div class="logo">SE</div>
+        <div>
+          <h1>Panel de usuario</h1>
+          <p class="muted">Gestiona tus solicitudes y crea nuevos eventos</p>
+        </div>
+      </div>
+
+      <div id="user_box" style="margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <div>
+          <div><strong id="dash_user_name">Usuario</strong></div>
+          <div class="muted" id="dash_user_email">email@example.com</div>
+        </div>
+        <div>
+          <button id="btn_logout">Cerrar sesión</button>
+        </div>
+      </div>
+
+      <hr style="margin:18px 0">
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+        <a href="create_request.html"><div class="card" style="padding:18px;text-align:left"><div class="avatar">+</div><div class="content"><strong>Crear solicitud</strong><div class="meta">Solicita un espacio público para tu evento</div></div></div></a>
+        <a href="my_requests.html"><div class="card" style="padding:18px;text-align:left"><div class="avatar">✓</div><div class="content"><strong>Estado de solicitudes</strong><div class="meta">Consulta el estado de tus solicitudes y comentarios</div></div></div></a>
+        <div class="card" style="padding:18px;text-align:left"><div class="avatar">i</div><div class="content"><strong>Ayuda</strong><div class="meta">Revisa las reglas para solicitar espacios y recomendaciones</div></div></div>
+      </div>
+
+      <div id="admin_quick" style="margin-top:14px;display:none">
+        <hr>
+        <a href="admin_requests.html"><button style="background:linear-gradient(90deg,var(--primary-500),var(--primary-300));">Ir al panel admin</button></a>
+      </div>
+    </div>
+  </div>
+  <script src="js/header.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

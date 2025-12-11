@@ -1,0 +1,120 @@
+:root{
+	/* Palette inspired by gob.mx image (burgundy / maroon tones) */
+	--primary-900: #330914; /* very dark maroon */
+	--primary-700: #5a0f24; /* deep maroon */
+	--primary-500: #7b1233; /* main burgundy */
+	--primary-300: #b33a5a; /* lighter accent */
+	--accent-100: #f6d7df; /* very pale pink */
+	--accent: #7b1233; /* accent (burgundy) — used for buttons */
+	--accent-600: #5a0f24; /* darker accent used by links */
+	--bg: #f5eef0; /* soft warm background */
+	--card: #ffffff;
+	--muted: #6b5860;
+	--success: #16a34a;
+	--danger: #dc2626;
+	--warning: #f59e0b;
+}
+
+*{box-sizing:border-box}
+body{font-family:Inter,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#111;margin:0}
+
+.container{max-width:980px;margin:28px auto;padding:22px;background:transparent;border-radius:10px}
+
+/* Page background */
+body::before{
+	content:'';position:fixed;inset:0;z-index:-1;background:
+		radial-gradient(800px 400px at 8% 12%, rgba(123,18,51,0.10), transparent 12%),
+		radial-gradient(600px 320px at 92% 88%, rgba(91,12,30,0.08), transparent 14%),
+		linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+}
+
+/* Card container to hold content cleanly */
+.card-shell{background:var(--card);border-radius:12px;padding:22px;box-shadow:0 10px 30px rgba(16,24,40,0.06)}
+
+/* Top navigation (index landing) */
+nav ul{list-style:none;padding:0;margin:0;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+nav a{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--accent-600);border:1px solid transparent;font-weight:600}
+nav a:hover{background:rgba(43,123,246,0.06);border-color:rgba(43,123,246,0.12)}
+
+/* Headings */
+h1{font-size:22px;margin:0 0 12px}
+h2{font-size:18px;margin:6px 0 12px;color:#0f172a}
+
+/* Forms */
+input,select,textarea,button{font-family:inherit}
+label{display:block;font-weight:600;margin:16px 0 6px;color:var(--primary-900);font-size:14px}
+input,select,textarea{display:block;width:100%;margin:0 0 12px;padding:12px 14px;border-radius:10px;border:1px solid #e6e9ef;background:#fbfdff;transition:box-shadow .16s ease,transform .12s ease}
+input:focus,select:focus,textarea:focus{outline:none;box-shadow:0 6px 18px rgba(43,123,246,0.12);transform:translateY(-1px)}
+textarea{min-height:110px}
+button{display:inline-block;padding:10px 16px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent),var(--accent-600));color:#fff;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(43,123,246,0.12);transition:transform .12s ease,box-shadow .12s ease}
+button:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(43,123,246,0.14)}
+
+/* Small controls and layout for register/login side-by-side on wide screens */
+#forms{display:flex;gap:18px}
+#forms > div{flex:1;background:linear-gradient(180deg,#ffffff,#fbfdff);padding:16px;border-radius:12px;border:1px solid #eef2f6}
+
+/* Card list for requests */
+.card{border:1px solid #eef2f6;padding:14px;margin:12px 0;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfdff);display:flex;align-items:flex-start;gap:12px}
+.card .avatar{width:48px;height:48px;border-radius:999px;background:linear-gradient(135deg,#e6f0ff,#fff);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent-600);box-shadow:0 6px 18px rgba(16,24,40,0.04)}
+.card .content{flex:1}
+.card strong{display:block;font-size:15px;margin-bottom:6px}
+.card .meta{color:var(--muted);font-size:13px;margin-bottom:8px}
+
+/* Status badges */
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;color:#fff;font-weight:700}
+.badge.pending{background:linear-gradient(90deg,#fbbf24,#f97316);color:#2b1a00}
+.badge.accepted{background:linear-gradient(90deg,#34d399,#059669)}
+.badge.rejected{background:linear-gradient(90deg,#fb7185,#dc2626)}
+.badge.questioned{background:linear-gradient(90deg,#a78bfa,#7c3aed)}
+
+/* Admin action buttons */
+.card .actions{margin-top:8px}
+.card .actions button{margin-right:8px;padding:8px 10px;border-radius:8px;color:#fff;border:none}
+.card .actions button.accept{background:linear-gradient(90deg,#34d399,#059669)}
+.card .actions button.reject{background:linear-gradient(90deg,#fb7185,#dc2626)}
+.card .actions button.question{background:linear-gradient(90deg,#a78bfa,#7c3aed)}
+
+/* Page-specific containers (center smaller forms) */
+body[data-page="login"] .card-shell, body[data-page="register"] .card-shell{max-width:520px;margin:40px auto}
+body[data-page="create"] .card-shell, body[data-page="my_requests"] .card-shell, body[data-page="admin"] .card-shell{max-width:820px;margin:28px auto}
+
+/* Utility */
+.muted{color:var(--muted)}
+
+/* Responsive */
+@media (max-width:720px){
+	#forms{flex-direction:column}
+	nav ul{flex-direction:column}
+}
+
+/* Footer small link */
+.container p a{color:var(--accent-600);text-decoration:none}
+.container p a:hover{text-decoration:underline}
+
+/* Small helpers for landing */
+.hero{display:flex;align-items:center;gap:18px}
+.logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--primary-500),var(--primary-300));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:20px}
+
+/* Header/Navbar */
+.app-header{background:linear-gradient(90deg,var(--primary-700),var(--primary-500));color:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.08);position:sticky;top:0;z-index:100}
+.app-header .container{max-width:100%;padding:12px 22px}
+.header-nav{display:flex;gap:16px}
+.header-nav a{color:#fff;text-decoration:none;padding:6px 10px;border-radius:6px;transition:background .12s ease}
+.header-nav a:hover{background:rgba(255,255,255,0.15)}
+.header-nav a.admin-link{background:rgba(255,255,255,0.2);font-weight:600}
+.app-header button{background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:8px 12px;border-radius:8px;cursor:pointer;transition:background .12s ease}
+.app-header button:hover{background:rgba(255,255,255,0.3)}
+
+@media (max-width:720px){
+  .header-nav{flex-direction:column;gap:8px}
+  .app-header .container{flex-direction:column;align-items:flex-start}
+}
+
+/* Admin table styling */
+table{width:100%;border-collapse:collapse}
+table thead{background:#f5eef0;border-bottom:2px solid #e0d7e0}
+table th{padding:10px;text-align:left;font-weight:600;color:#330914}
+table td{padding:10px;border-bottom:1px solid #e0d7e0}
+table tbody tr:hover{background:#fbf9fa}
+
+

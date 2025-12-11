@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin - Agregar Zona</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="admin_zones">
+  <div class="container">
+    <div class="card-shell">
+      <div class="hero">
+        <div class="logo">SE</div>
+        <div>
+          <h1>Agregar Zona</h1>
+          <p class="muted">Panel Administrativo</p>
+        </div>
+      </div>
+      <p><a href="admin_requests.html">&larr; Volver al panel</a></p>
+
+      <label for="zone_name">Nombre de la Zona</label>
+      <input id="zone_name" placeholder="Ej. Parque Central">
+
+      <label for="zone_desc">Descripción</label>
+      <input id="zone_desc" placeholder="Detalles de la zona">
+
+      <div style="margin-top:20px;text-align:right">
+        <button id="btn_save_zone"
+          style="background:var(--primary-600);color:white;padding:12px 24px;border-radius:8px;font-size:16px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 6px rgba(0,0,0,0.1);transition:transform 0.2s">
+          <span>💾</span> Guardar Nueva Zona
+        </button>
+      </div>
+      <div id="msg"></div>
+    </div>
+  </div>
+  <script src="js/header.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

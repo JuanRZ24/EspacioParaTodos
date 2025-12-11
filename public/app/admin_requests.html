@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Panel Admin - Solicitud Espacios</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="admin">
+  <div class="container">
+    <div class="card-shell">
+      <div class="hero">
+        <div class="logo">SE</div>
+        <div>
+          <h1>Panel de Administración</h1>
+          <p class="muted">Gestiona solicitudes: revisa, acepta, rechaza o solicita aclaraciones</p>
+          <div style="margin-top:10px">
+            <a href="admin_zones.html"
+              style="text-decoration:none;background:var(--primary-600);color:white;padding:6px 12px;border-radius:6px;font-size:0.9em">➕
+              Agregar Nueva Zona</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filtros -->
+      <div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap">
+        <input id="admin_search" type="text" placeholder="Buscar por usuario, zona o evento..."
+          style="flex:1;min-width:200px">
+        <select id="admin_filter_status" style="flex:0 1 160px">
+          <option value="">Todos los estados</option>
+          <option value="pending">Pendientes</option>
+          <option value="accepted">Aceptadas</option>
+          <option value="rejected">Rechazadas</option>
+          <option value="questioned">Con observaciones</option>
+        </select>
+      </div>
+
+      <!-- Listado de solicitudes -->
+      <div id="admin_requests"></div>
+
+      <!-- Modal para detalles y acciones -->
+      <div id="admin_modal"
+        style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:200;overflow-y:auto">
+        <div
+          style="background:#fff;margin:20px auto;padding:22px;border-radius:12px;max-width:600px;box-shadow:0 10px 40px rgba(0,0,0,0.1)">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+            <h2>Detalles de Solicitud</h2>
+            <button id="admin_modal_close"
+              style="background:transparent;color:var(--primary-500);border:none;font-size:20px;cursor:pointer">✕</button>
+          </div>
+          <div id="admin_modal_content"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/header.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

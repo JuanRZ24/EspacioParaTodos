@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Solicitud de Espacios Públicos</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="container">
+    <div class="card-shell" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="logo">SE</div>
+        <div>
+          <strong style="font-size:18px">Sistema de Solicitud de Espacios</strong>
+          <div class="muted" style="font-size:13px">Reserva zonas públicas para eventos y actividades comunitarias</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="register.html">Registrar</a></li>
+          <li><a href="login.html">Entrar</a></li>
+          <li><a href="create_request.html">Solicitar espacio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card-shell" style="text-align:left">
+      <div style="display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px">
+          <h1 style="font-size:32px;margin-bottom:8px">Organiza eventos en espacios públicos de forma fácil</h1>
+          <p class="muted">Crea una solicitud con la fecha, duración y una justificación. Un administrador revisará y podrá aceptar, rechazar o pedir aclaraciones.</p>
+          <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="cta" href="register.html"><button>Crear cuenta</button></a>
+            <a class="cta" href="create_request.html"><button style="background:transparent;color:var(--accent-600);box-shadow:none;border:1px solid rgba(22,102,214,0.12)">Solicitar ahora</button></a>
+          </div>
+        </div>
+        <div style="width:320px;min-width:260px">
+          <div class="card" style="padding:18px">
+            <div class="avatar">Z</div>
+            <div class="content">
+              <strong>¿Qué puedes hacer?</strong>
+              <div class="meta">- Registrar y gestionar tus solicitudes<br>- Elegir una zona y fecha<br>- Ver estado de tus solicitudes<br>- Administradores pueden gestionar las solicitudes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section style="margin-top:18px">
+      <div class="card-shell">
+        <h2>Cómo funciona</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px">
+          <div class="card">
+            <div class="avatar">1</div>
+            <div class="content"><strong>Regístrate</strong><div class="meta">Crea una cuenta para gestionar tus solicitudes.</div></div>
+          </div>
+          <div class="card">
+            <div class="avatar">2</div>
+            <div class="content"><strong>Rellena la solicitud</strong><div class="meta">Selecciona zona, fecha, duración y justificación.</div></div>
+          </div>
+          <div class="card">
+            <div class="avatar">3</div>
+            <div class="content"><strong>Espera revisión</strong><div class="meta">Un administrador revisará y te informará del estado.</div></div>
+          </div>
+          <div class="card">
+            <div class="avatar">4</div>
+            <div class="content"><strong>Realiza tu evento</strong><div class="meta">Si es aprobado, prepara tu actividad en la fecha indicada.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:18px">
+      <div class="card-shell">
+        <h2>Beneficios</h2>
+        <ul class="muted">
+          <li>Proceso sencillo y centralizado</li>
+          <li>Historial de tus solicitudes</li>
+          <li>Notificaciones y comentarios del administrador</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div class="card-shell" style="display:flex;justify-content:space-between;align-items:center">
+      <div class="muted">© 2025 Sistema de Solicitud de Espacios</div>
+      <div><a href="login.html">Acceso administrador</a> · <a href="register.html">Crear cuenta</a></div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
