@@ -11,22 +11,27 @@ class SolicitudController extends Controller {
         $user = $this->authUserFromRequest($request);
         if(!$user) return $response->json(['error'=>'Unauthorized'],401);
         $data = $request->all();
-        $required = ['zone_id','event_date','start_time','end_time','justification','description'];
+        $required = ['event_date','start_time','end_time','justification','description'];
         foreach($required as $r) if(!isset($data[$r]) || $data[$r] === '') return $response->json(['error'=>"Missing $r"],400);
 
-        // Validate date is in the future
+       
+        if((!isset($data['zone_id']) || $data['zone_id'] === '') && (!isset($data['custom_zone']) || trim($data['custom_zone']) === '')){
+             return $response->json(['error'=>'Must specify a zone or custom zone'],400);
+        }
+
+        
         $today = new DateTimeImmutable('today');
         $eventDate = DateTimeImmutable::createFromFormat('Y-m-d', $data['event_date']);
         if(!$eventDate) return $response->json(['error'=>'Invalid event_date format, expected YYYY-MM-DD'],400);
         if($eventDate <= $today) return $response->json(['error'=>'event_date must be a future date'],400);
 
-        // Validate times
+        
         $start = DateTimeImmutable::createFromFormat('H:i', $data['start_time']);
         $end = DateTimeImmutable::createFromFormat('H:i', $data['end_time']);
         if(!$start || !$end) return $response->json(['error'=>'Invalid time format, expected HH:MM'],400);
         if($end <= $start) return $response->json(['error'=>'end_time must be after start_time'],400);
 
-        // Compute duration in hours (float) and round to nearest integer hours
+      
         $dtStart = DateTimeImmutable::createFromFormat('Y-m-d H:i', $data['event_date'].' '.$data['start_time']);
         $dtEnd = DateTimeImmutable::createFromFormat('Y-m-d H:i', $data['event_date'].' '.$data['end_time']);
         if(!$dtStart || !$dtEnd) return $response->json(['error'=>'Invalid date/time combination'],400);
@@ -36,10 +41,11 @@ class SolicitudController extends Controller {
 
         $payload = [
             'user_id'=>$user['id'],
-            'zone_id'=>intval($data['zone_id']),
+            'zone_id'=>isset($data['zone_id']) && $data['zone_id'] !== '' ? intval($data['zone_id']) : null,
+            'custom_zone'=>isset($data['custom_zone']) ? $data['custom_zone'] : null,
             'event_date'=>$data['event_date'],
-            'start_time'=>$data['start_time'],
-            'end_time'=>$data['end_time'],
+            'event_start_time'=>$data['start_time'],
+            'event_end_time'=>$data['end_time'],
             'duration_hours'=>$durationHours,
             'justification'=>$data['justification'],
             'description'=>$data['description']

@@ -1,97 +1,184 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Solicitud de Espacios Públicos</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>EspacioParaTodos - Gestión de Espacios Públicos</title>
+  <link rel="stylesheet" href="css/style.css?v=3.1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-family: 'Inter', sans-serif;
+      --primary-600: #2563eb;
+      --primary-700: #1d4ed8;
+      --text-main: #1f2937;
+      --text-muted: #6b7280;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--text-main);
+    }
+
+    .hero-section {
+      position: relative;
+      height: 80vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      color: white;
+      background-image: url('img/hero-bg.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 600px;
+    }
+
+    .feature-card {
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+  </style>
 </head>
+
 <body>
-  <header class="container">
-    <div class="card-shell" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
-      <div style="display:flex;align-items:center;gap:12px">
-        <div class="logo">SE</div>
+  <header class="app-header" style="background: #9D2449; color: white;">
+    <div class="container flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <!-- New Logo -->
+        <img src="img/logo_mx.png" alt="Gobierno de México" style="height: 48px; width: auto;">
         <div>
-          <strong style="font-size:18px">Sistema de Solicitud de Espacios</strong>
-          <div class="muted" style="font-size:13px">Reserva zonas públicas para eventos y actividades comunitarias</div>
+          <strong class="text-sm" style="color: white">EspacioParaTodos</strong>
         </div>
       </div>
       <nav>
-        <ul>
-          <li><a href="register.html">Registrar</a></li>
-          <li><a href="login.html">Entrar</a></li>
-          <li><a href="create_request.html">Solicitar espacio</a></li>
+        <ul class="flex items-center gap-6">
+          <li><a href="register.html" class="text-sm font-medium hover:text-gray-200" style="color:white">Registrar</a>
+          </li>
+          <li><a href="login.html" class="text-sm font-medium hover:text-gray-200" style="color:white">Entrar</a></li>
+          <li><a href="create_request.html" class="btn btn-secondary"
+              style="padding:0.5rem 1.25rem; font-weight:600; color: #9D2449">Solicitar espacio</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <div class="card-shell" style="text-align:left">
-      <div style="display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-        <div style="flex:1;min-width:260px">
-          <h1 style="font-size:32px;margin-bottom:8px">Organiza eventos en espacios públicos de forma fácil</h1>
-          <p class="muted">Crea una solicitud con la fecha, duración y una justificación. Un administrador revisará y podrá aceptar, rechazar o pedir aclaraciones.</p>
-          <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="cta" href="register.html"><button>Crear cuenta</button></a>
-            <a class="cta" href="create_request.html"><button style="background:transparent;color:var(--accent-600);box-shadow:none;border:1px solid rgba(22,102,214,0.12)">Solicitar ahora</button></a>
-          </div>
-        </div>
-        <div style="width:320px;min-width:260px">
-          <div class="card" style="padding:18px">
-            <div class="avatar">Z</div>
-            <div class="content">
-              <strong>¿Qué puedes hacer?</strong>
-              <div class="meta">- Registrar y gestionar tus solicitudes<br>- Elegir una zona y fecha<br>- Ver estado de tus solicitudes<br>- Administradores pueden gestionar las solicitudes</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <section style="margin-top:18px">
-      <div class="card-shell">
-        <h2>Cómo funciona</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px">
-          <div class="card">
-            <div class="avatar">1</div>
-            <div class="content"><strong>Regístrate</strong><div class="meta">Crea una cuenta para gestionar tus solicitudes.</div></div>
-          </div>
-          <div class="card">
-            <div class="avatar">2</div>
-            <div class="content"><strong>Rellena la solicitud</strong><div class="meta">Selecciona zona, fecha, duración y justificación.</div></div>
-          </div>
-          <div class="card">
-            <div class="avatar">3</div>
-            <div class="content"><strong>Espera revisión</strong><div class="meta">Un administrador revisará y te informará del estado.</div></div>
-          </div>
-          <div class="card">
-            <div class="avatar">4</div>
-            <div class="content"><strong>Realiza tu evento</strong><div class="meta">Si es aprobado, prepara tu actividad en la fecha indicada.</div></div>
-          </div>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <h1 class="display-3 mb-4" style="font-weight: 800; font-size: 3.5rem; line-height: 1.1;">
+          Transforma tu comunidad <br> <span style="color: #D4C19C">evento a evento</span>
+        </h1>
+        <p class="mb-8" style="font-size: 1.25rem; color: #e5e7eb; max-width: 90%;">
+          La plataforma oficial para reservar parques, plazas y centros comunitarios.
+          Organiza, participa y da vida a los espacios públicos de tu ciudad.
+        </p>
+        <div class="flex gap-4">
+          <a href="create_request.html" class="btn btn-primary"
+            style="padding: 1rem 2rem; font-size: 1.1rem; background-color: #9D2449; border:none;">
+            Reservar ahora
+          </a>
+          <a href="register.html" class="btn"
+            style="padding: 1rem 2rem; font-size: 1.1rem; background: white; color: var(--text-main); border:none">
+            Crear cuenta
+          </a>
         </div>
       </div>
     </section>
 
-    <section style="margin-top:18px">
-      <div class="card-shell">
-        <h2>Beneficios</h2>
-        <ul class="muted">
-          <li>Proceso sencillo y centralizado</li>
-          <li>Historial de tus solicitudes</li>
-          <li>Notificaciones y comentarios del administrador</li>
-        </ul>
+    <!-- Features Grid -->
+    <section class="container" style="padding: 6rem 0;">
+      <div class="text-center mb-12">
+        <h2 class="mb-4" style="font-size: 2.5rem; font-weight: 700;">Todo lo que necesitas hacer</h2>
+        <p class="text-muted" style="font-size: 1.1rem;">Gestionar eventos comunitarios nunca fue tan sencillo</p>
+      </div>
+
+      <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+
+        <!-- Feature 1 -->
+        <div class="card feature-card border-0 shadow-sm">
+          <img src="img/feature-event.png" alt="Eventos" class="feature-img">
+          <h3 class="h4 mb-2">Descubre Espacios</h3>
+          <p class="text-muted">Explora todas las zonas disponibles en tu ciudad, desde grandes parques hasta pequeños
+            centros culturales.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="card feature-card border-0 shadow-sm">
+          <img src="img/feature-calendar.png" alt="Calendario" class="feature-img">
+          <h3 class="h4 mb-2">Reserva Fácilmente</h3>
+          <p class="text-muted">Consulta la disponibilidad en tiempo real y realiza tu solicitud en minutos desde
+            cualquier dispositivo.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="card feature-card border-0 shadow-sm">
+          <img src="img/feature-community.png" alt="Comunidad" class="feature-img">
+          <h3 class="h4 mb-2">Construye Comunidad</h3>
+          <p class="text-muted">Conecta con tus vecinos y crea experiencias memorables que fortalezcan el tejido social.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="background: #f3f4f6; padding: 6rem 0;">
+      <div class="container text-center max-w-2xl">
+        <h2 class="mb-6" style="font-size: 2.5rem; font-weight: 700;">¿Listo para organizar tu evento?</h2>
+        <p class="text-muted mb-8" style="font-size: 1.25rem;">
+          Únete a cientos de organizadores que ya están mejorando su comunidad.
+        </p>
+        <a href="register.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+          Comenzar Gratis
+        </a>
       </div>
     </section>
   </main>
 
-  <footer class="container">
-    <div class="card-shell" style="display:flex;justify-content:space-between;align-items:center">
-      <div class="muted">© 2025 Sistema de Solicitud de Espacios</div>
-      <div><a href="login.html">Acceso administrador</a> · <a href="register.html">Crear cuenta</a></div>
+  <footer style="background: #1f2937; color: white; padding: 4rem 0;">
+    <div class="container text-center">
+      <div class="mb-4 font-bold text-xl">EspacioParaTodos</div>
+      <p class="text-gray-400 mb-8">Haciendo ciudad, juntos.</p>
+      <div class="flex justify-center gap-6 mb-8">
+        <a href="#" class="text-gray-400 hover:text-white">Términos</a>
+        <a href="#" class="text-gray-400 hover:text-white">Privacidad</a>
+        <a href="#" class="text-gray-400 hover:text-white">Contacto</a>
+      </div>
+      <p class="text-gray-500 text-sm">© 2025 Sistema de Solicitud de Espacios. Todos los derechos reservados.</p>
+      <div class="mt-4">
+        <a href="login.html" class="text-sm text-gray-600 hover:text-gray-400">Acceso Admin</a>
+      </div>
     </div>
   </footer>
 
-  <script src="js/app.js"></script>
+
 </body>
+
 </html>

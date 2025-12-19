@@ -1,34 +1,31 @@
 <?php
-require_once __DIR__ . '/../app/helpers/helpers.php';
-require_once __DIR__ . '/../app/config/database.php';
+require_once __DIR__ . '/../app/core/Database.php';
 
-$cfg = require __DIR__ . '/../app/config/database.php';
+// Usage: php reset_admin_password.php <new_password>
+// If no password provided, defaults to 'admin123'
+
+$newPass = $argv[1] ?? 'admin123';
 
 try {
-    $dsn = "mysql:host={$cfg['host']};dbname={$cfg['dbname']};charset={$cfg['charset']}";
-    $pdo = new PDO($dsn, $cfg['user'], $cfg['pass'], [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    $pdo = Database::getConnection();
     
-    // Generar una nueva contraseña para el admin
-    $new_password = 'admin123';
-    $new_hash = password_hash($new_password, PASSWORD_DEFAULT);
+    // Find admin
+    $stmt = $pdo->query("SELECT id, email FROM users WHERE role = 'admin' LIMIT 1");
+    $admin = $stmt->fetch();
     
-    // Actualizar el admin
-    $stmt = $pdo->prepare('UPDATE users SET password = :p WHERE email = :e AND role = :r');
-    $stmt->execute([
-        ':p' => $new_hash,
-        ':e' => 'admin@example.com',
-        ':r' => 'admin'
-    ]);
+    if (!$admin) {
+        die("Error: No admin user found.\n");
+    }
     
-    header('Content-Type: application/json');
-    echo json_encode([
-        'message' => 'Admin password reset successfully',
-        'email' => 'admin@example.com',
-        'password' => $new_password,
-        'warning' => 'Cambia esta contraseña después de hacer login'
-    ]);
+    // Hash password
+    $hash = password_hash($newPass, PASSWORD_DEFAULT);
+    
+    // Update
+    $update = $pdo->prepare("UPDATE users SET password = :p WHERE id = :id");
+    $update->execute([':p' => $hash, ':id' => $admin['id']]);
+    
+    echo "Success! Password for admin ({$admin['email']}) changed to: $newPass\n";
+    
 } catch (Exception $e) {
-    header('Content-Type: application/json');
-    http_response_code(500);
-    echo json_encode(['error' => $e->getMessage()]);
+    echo "Error: " . $e->getMessage() . "\n";
 }

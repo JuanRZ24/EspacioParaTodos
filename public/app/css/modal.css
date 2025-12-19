@@ -1,0 +1,55 @@
+/* Custom Confirm Modal */
+#confirm-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeIn 0.2s forwards;
+}
+
+#confirm-modal .modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    transform: scale(0.9);
+    animation: scaleUp 0.2s forwards;
+}
+
+#confirm-modal h3 {
+    margin-bottom: 1rem;
+    color: var(--gray-900);
+}
+
+#confirm-modal p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+#confirm-modal .actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    to {
+        transform: scale(1);
+    }
+}

@@ -9,26 +9,25 @@
 </head>
 
 <body data-page="admin">
-  <div class="container">
+  <div class="container" style="margin-top:2rem">
     <div class="card-shell">
-      <div class="hero">
-        <div class="logo">SE</div>
+      <div class="flex justify-between items-center mb-6">
         <div>
-          <h1>Panel de Administración</h1>
-          <p class="muted">Gestiona solicitudes: revisa, acepta, rechaza o solicita aclaraciones</p>
-          <div style="margin-top:10px">
-            <a href="admin_zones.html"
-              style="text-decoration:none;background:var(--primary-600);color:white;padding:6px 12px;border-radius:6px;font-size:0.9em">➕
-              Agregar Nueva Zona</a>
-          </div>
+          <h1 class="text-2xl font-bold mb-1">Panel de Administración</h1>
+          <p class="text-muted text-sm">Gestiona solicitudes: revisa, acepta, rechaza o solicita aclaraciones</p>
+        </div>
+        <div>
+          <a href="admin_zones.html" class="btn btn-primary text-sm flex items-center gap-2">
+            <span>+</span> Agregar Zona
+          </a>
         </div>
       </div>
 
       <!-- Filtros -->
-      <div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap">
-        <input id="admin_search" type="text" placeholder="Buscar por usuario, zona o evento..."
-          style="flex:1;min-width:200px">
-        <select id="admin_filter_status" style="flex:0 1 160px">
+      <div class="flex gap-4 mb-6 flex-wrap">
+        <input id="admin_search" type="text" placeholder="Buscar por usuario, zona o evento..." class="flex-1"
+          style="margin-bottom:0">
+        <select id="admin_filter_status" style="width: auto; margin-bottom:0; min-width:180px">
           <option value="">Todos los estados</option>
           <option value="pending">Pendientes</option>
           <option value="accepted">Aceptadas</option>
@@ -38,25 +37,26 @@
       </div>
 
       <!-- Listado de solicitudes -->
-      <div id="admin_requests"></div>
+      <div id="admin_requests">
+        <!-- Populated by JS -->
+        <div class="text-muted text-center p-4">Cargando solicitudes...</div>
+      </div>
 
       <!-- Modal para detalles y acciones -->
-      <div id="admin_modal"
-        style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:200;overflow-y:auto">
-        <div
-          style="background:#fff;margin:20px auto;padding:22px;border-radius:12px;max-width:600px;box-shadow:0 10px 40px rgba(0,0,0,0.1)">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-            <h2>Detalles de Solicitud</h2>
-            <button id="admin_modal_close"
-              style="background:transparent;color:var(--primary-500);border:none;font-size:20px;cursor:pointer">✕</button>
+      <div id="admin_modal" style="display:none">
+        <div class="modal-content">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold">Detalles de Solicitud</h2>
+            <button id="admin_modal_close" class="text-2xl leading-none hover:text-red-500"
+              style="background:none; border:none; cursor:pointer;">&times;</button>
           </div>
           <div id="admin_modal_content"></div>
         </div>
       </div>
     </div>
   </div>
-  <script src="js/header.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/header.js?v=3.0"></script>
+  <script src="js/app.js?v=3.0"></script>
 </body>
 
 </html>

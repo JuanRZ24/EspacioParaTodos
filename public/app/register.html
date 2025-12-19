@@ -1,29 +1,74 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Registrar - Solicitud Espacios</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=3.1">
 </head>
+
 <body data-page="register">
-  <div class="container">
-    <div class="card-shell">
-      <div class="hero">
-        <div class="logo">SE</div>
+  <header class="app-header" style="background: #9D2449; color: white;">
+    <div class="container flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <img src="img/logo_mx.png" alt="Gobierno de México" style="height: 48px; width: auto;">
         <div>
-          <h1>Registrar</h1>
-          <p class="muted">Crea una cuenta para solicitar espacios públicos</p>
+          <strong class="text-sm" style="color: white">EspacioParaTodos</strong>
         </div>
       </div>
+      <nav>
+        <ul class="flex items-center gap-6">
+          <li><a href="index.html" class="text-sm font-medium hover:text-gray-200" style="color:white">Inicio</a></li>
+          <li><a href="login.html" class="text-sm font-medium hover:text-gray-200" style="color:white">Entrar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-      <input id="reg_name" placeholder="Nombre">
-      <input id="reg_email" placeholder="Email">
-      <input id="reg_pass" type="password" placeholder="Contraseña">
-      <button id="btn_register">Registrar</button>
-      <p><a href="login.html">¿Ya tienes cuenta? Inicia sesión</a></p>
+  <div class="container" style="max-width:500px; margin-top:4rem">
+    <div class="card-shell">
+      <div class="mb-6 text-center">
+        <h1 class="text-2xl font-bold">Registrar</h1>
+        <p class="text-muted">Crea una cuenta para solicitar espacios públicos</p>
+      </div>
+
+      <div class="mb-4">
+        <input id="reg_name" type="text" placeholder="Nombre completo">
+      </div>
+
+      <div class="mb-4">
+        <input id="reg_email" placeholder="Email" type="email">
+      </div>
+
+      <div class="mb-4">
+        <input id="reg_curp" type="text" placeholder="CURP" style="text-transform: uppercase;">
+      </div>
+
+      <div class="mb-4">
+        <input id="reg_address" type="text" placeholder="Domicilio completo">
+      </div>
+
+      <div class="mb-4">
+        <input id="reg_phone" type="text" placeholder="Teléfono">
+      </div>
+
+      <div class="mb-6">
+        <input id="reg_pass" type="password" placeholder="Contraseña">
+      </div>
+
+      <div class="mb-6">
+        <input id="reg_pass_confirm" type="password" placeholder="Confirmar Contraseña">
+      </div>
+
+      <button id="btn_register" class="btn btn-primary w-full text-lg mb-4">Registrar</button>
+
+      <div class="text-center text-sm">
+        <a href="login.html" class="text-primary-600 font-bold">¿Ya tienes cuenta? Inicia sesión</a>
+      </div>
     </div>
   </div>
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=3.2"></script>
 </body>
+
 </html>

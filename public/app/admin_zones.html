@@ -6,37 +6,76 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Admin - Agregar Zona</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    #map_picker {
+      height: 300px;
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      cursor: crosshair;
+    }
+  </style>
 </head>
 
 <body data-page="admin_zones">
-  <div class="container">
+  <div class="container" style="max-width:800px; margin-top:2rem">
     <div class="card-shell">
-      <div class="hero">
-        <div class="logo">SE</div>
+      <div class="mb-4">
+        <h1 class="text-2xl font-bold">Agregar Zona</h1>
+        <p class="text-muted">Haz clic en el mapa para seleccionar la ubicación exacta.</p>
+      </div>
+
+      <div class="mb-4">
+        <a href="admin_requests.html" class="text-sm text-primary-600 font-bold hover:underline">&larr; Volver al
+          panel</a>
+      </div>
+
+      <div id="map_picker" class="border"></div>
+      <p class="text-xs text-muted mb-4 text-center">Pincha en el mapa para auto-completar coordenadas y ciudad.</p>
+
+      <div class="grid grid-cols-2 gap-4 mb-4">
         <div>
-          <h1>Agregar Zona</h1>
-          <p class="muted">Panel Administrativo</p>
+          <label for="zone_lat">Latitud</label>
+          <input id="zone_lat" class="bg-gray-100" readonly>
+        </div>
+        <div>
+          <label for="zone_lng">Longitud</label>
+          <input id="zone_lng" class="bg-gray-100" readonly>
         </div>
       </div>
-      <p><a href="admin_requests.html">&larr; Volver al panel</a></p>
+
+      <div class="mb-4">
+        <label for="zone_city">Ciudad</label>
+        <input id="zone_city" placeholder="Ej. CDMX">
+      </div>
 
       <label for="zone_name">Nombre de la Zona</label>
-      <input id="zone_name" placeholder="Ej. Parque Central">
+      <div class="mb-4">
+        <input id="zone_name" placeholder="Ej. Parque Central">
+      </div>
 
-      <label for="zone_desc">Descripción</label>
-      <input id="zone_desc" placeholder="Detalles de la zona">
+      <div class="mb-4">
+        <label for="zone_desc">Descripción</label>
+        <textarea id="zone_desc" rows="3" placeholder="Describe la zona"></textarea>
+      </div>
 
-      <div style="margin-top:20px;text-align:right">
-        <button id="btn_save_zone"
-          style="background:var(--primary-600);color:white;padding:12px 24px;border-radius:8px;font-size:16px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 6px rgba(0,0,0,0.1);transition:transform 0.2s">
+      <div class="mb-4">
+        <label for="zone_image">URL de la Imagen (Opcional)</label>
+        <input type="text" id="zone_image" placeholder="https://ejemplo.com/imagen.jpg">
+      </div>
+
+      <div class="text-right mt-4">
+        <button id="btn_save_zone" class="btn btn-primary w-full sm:w-auto">
           <span>💾</span> Guardar Nueva Zona
         </button>
       </div>
       <div id="msg"></div>
     </div>
   </div>
-  <script src="js/header.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/header.js?v=3.0"></script>
+  <script src="js/app.js?v=3.0"></script>
 </body>
 
 </html>

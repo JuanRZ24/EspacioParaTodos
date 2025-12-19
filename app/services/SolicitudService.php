@@ -30,4 +30,7 @@ class SolicitudService {
     public function delete($id){
         return $this->model->delete($id);
     }
+    public function getStats(){
+        return $this->model->getStats();
+    }
 }

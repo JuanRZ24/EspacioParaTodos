@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Administrar Usuarios - Solicitud Espacios</title>
+    <link rel="stylesheet" href="css/style.css?v=3.2">
+</head>
+
+<body data-page="admin_users">
+    <!-- Header injected by header.js -->
+
+    <div class="container mt-8" style="margin-top:4rem">
+        <div class="card-shell">
+            <h1 class="text-2xl font-bold mb-4">Administración de Usuarios</h1>
+
+            <div class="flex gap-4 mb-4">
+                <input id="admin_user_search" type="text" placeholder="Buscar por nombre, email o CURP..."
+                    class="w-full p-2 border rounded">
+            </div>
+
+            <div id="admin_users_list">
+                <p>Cargando usuarios...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/header.js?v=3.3"></script>
+    <script src="js/app.js?v=3.3"></script>
+</body>
+
+</html>

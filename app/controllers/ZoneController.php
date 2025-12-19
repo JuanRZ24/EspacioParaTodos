@@ -14,8 +14,12 @@ class ZoneController extends Controller {
             return $response->json(['error'=>'Name and description are required'], 400);
         }
 
+        $lat = $data['lat'] ?? null;
+        $lng = $data['lng'] ?? null;
+        $city = $data['city'] ?? null;
+
         $model = new ZoneModel();
-        $id = $model->create($data['name'], $data['description']);
+        $id = $model->create($data['name'], $data['description'], $data['image_url'] ?? null, $lat, $lng, $city);
         return $response->json(['message'=>'Zone created', 'id'=>$id]);
     }
 }

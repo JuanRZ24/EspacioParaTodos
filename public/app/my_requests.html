@@ -1,11 +1,13 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Mis Solicitudes - Solicitud Espacios</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body data-page="my_requests">
   <div class="container">
     <div class="card-shell">
@@ -17,11 +19,40 @@
         </div>
       </div>
 
-      <div id="my_requests"></div>
+      <div id="my_requests" class="mt-4">
+        <!-- Content injected by JS -->
+      </div>
+
+      <!-- Rating Modal -->
+      <div id="rating_modal"
+        class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded shadow-lg w-96">
+          <h2 class="text-xl font-bold mb-4">Calificar Experiencia</h2>
+          <div class="mb-4">
+            <label class="block mb-2">Puntuación (1-5):</label>
+            <select id="rate_score" class="w-full border p-2 rounded">
+              <option value="5">5 - Excelente</option>
+              <option value="4">4 - Muy bien</option>
+              <option value="3">3 - Bien</option>
+              <option value="2">2 - Regular</option>
+              <option value="1">1 - Malo</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2">Comentario:</label>
+            <textarea id="rate_comment" class="w-full border p-2 rounded" rows="3"></textarea>
+          </div>
+          <div class="flex justify-end gap-2">
+            <button id="rate_cancel" class="btn btn-secondary">Cancelar</button>
+            <button id="rate_submit" class="btn btn-primary">Enviar</button>
+          </div>
+        </div>
+      </div>
       <p><a href="create_request.html">Crear nueva solicitud</a></p>
     </div>
   </div>
-  <script src="js/header.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/header.js?v=3.3"></script>
+  <script src="js/app.js?v=3.0"></script>
 </body>
+
 </html>

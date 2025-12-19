@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dashboard de Análisis - Admin</title>
+    <link rel="stylesheet" href="css/style.css?v=3.1">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body data-page="admin_dashboard">
+    <div class="container" style="margin-top:2rem">
+        <div class="card-shell">
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h1 class="text-2xl font-bold mb-1">Dashboard de Análisis</h1>
+                    <p class="text-muted text-sm">Métricas clave sobre el uso de los espacios públicos</p>
+                </div>
+                <div class="flex gap-2">
+                    <a href="admin_requests.html" class="btn btn-secondary text-sm">Gestionar Solicitudes</a>
+                    <a href="admin_zones.html" class="btn btn-secondary text-sm">Zonas</a>
+                </div>
+            </div>
+
+            <div class="grid-cards mb-6">
+                <!-- Chart 1: Status Distribution -->
+                <div class="card">
+                    <h3 class="text-lg font-bold mb-4">Estado de Solicitudes</h3>
+                    <canvas id="chartStatus"></canvas>
+                </div>
+                <!-- Chart 2: Popular Zones -->
+                <div class="card">
+                    <h3 class="text-lg font-bold mb-4">Zonas Más Populares</h3>
+                    <canvas id="chartZones"></canvas>
+                </div>
+                <!-- Chart 3: Monthly Trends -->
+                <div class="card" style="grid-column: span 1 / -1;">
+                    <h3 class="text-lg font-bold mb-4">Solicitudes por Mes</h3>
+                    <canvas id="chartTrends"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="js/header.js?v=3.0"></script>
+    <script src="js/app.js?v=3.0"></script>
+</body>
+
+</html>

@@ -7,6 +7,9 @@ CREATE TABLE `users` (
   `name` VARCHAR(100) NOT NULL,
   `email` VARCHAR(150) NOT NULL UNIQUE,
   `password` VARCHAR(255) NOT NULL,
+  `phone` VARCHAR(20) DEFAULT NULL,
+  `curp` VARCHAR(18) DEFAULT NULL,
+  `address` TEXT DEFAULT NULL,
   `role` ENUM('user','admin') NOT NULL DEFAULT 'user',
   `token` VARCHAR(255) DEFAULT NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -16,6 +19,7 @@ CREATE TABLE `zones` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `name` VARCHAR(150) NOT NULL,
   `description` TEXT,
+  `image_url` VARCHAR(255) DEFAULT NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

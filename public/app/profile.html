@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mi Perfil - EspacioParaTodos</title>
+    <link rel="stylesheet" href="css/style.css?v=3.2">
+</head>
+
+<body data-page="profile">
+    <!-- Header injected by header.js -->
+    <div class="container mt-8" style="margin-top:4rem">
+
+
+        <div class="card-shell max-w-2xl mx-auto">
+            <h1 class="text-2xl font-bold mb-6">Mi Perfil</h1>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Read Only Fields -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
+                    <input id="prof_name" type="text" class="w-full bg-gray-100 cursor-not-allowed" readonly>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input id="prof_email" type="text" class="w-full bg-gray-100 cursor-not-allowed" readonly>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">CURP</label>
+                    <input id="prof_curp" type="text" class="w-full bg-gray-100 cursor-not-allowed" readonly>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
+                    <input id="prof_phone" type="text" class="w-full bg-gray-100 cursor-not-allowed" readonly>
+                </div>
+
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Domicilio</label>
+                    <input id="prof_address" type="text" class="w-full bg-gray-100 cursor-not-allowed" readonly>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/header.js?v=3.3"></script>
+    <script src="js/app.js?v=3.2"></script>
+</body>
+
+</html>
